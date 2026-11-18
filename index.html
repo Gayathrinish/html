@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlacementAI | Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Placement<span>AI</span></h2>
+        <p class="muted">CAREER INTELLIGENCE</p>
+        <nav>
+            <a class="active" href="#dashboard">Dashboard</a>
+            <a href="#resume">Resume Analyzer</a>
+            <a href="#coding">Coding Assessment</a>
+            <a href="#interview">Mock Interview</a>
+            <a href="#roadmap">Learning Roadmap</a>
+        </nav>
+        <p class="muted bottom">STUDENT PORTAL · 2026</p>
+    </aside>
+
+    <main>
+        <header>
+            <div>
+                <p class="muted">STUDENT WORKSPACE</p>
+                <h1>Placement Intelligence Dashboard</h1>
+                <p>Understand your skills. Improve your placement readiness.</p>
+            </div>
+            <div class="avatar">S</div>
+        </header>
+
+        <section id="dashboard">
+            <div class="welcome">
+                <div>
+                    <p>YOUR CAREER JOURNEY</p>
+                    <h2>Build your placement readiness 🚀</h2>
+                    <p>Track your progress and identify what to improve next.</p>
+                </div>
+                <button onclick="loadDashboard()">Refresh scores</button>
+            </div>
+
+            <h2 class="section-title">Your Skill Readiness</h2>
+            <div class="grid" id="skills">
+                <p>Loading skill scores...</p>
+            </div>
+        </section>
+
+        <section id="resume" class="panel">
+            <h2>Resume Skill-Gap Analyzer</h2>
+            <p>Upload your resume and select a target role to identify missing skills.</p>
+
+            <label for="role">Target job role</label>
+            <select id="role">
+                <option value="Software Developer">Software Developer</option>
+                <option value="Python Developer">Python Developer</option>
+                <option value="Data Analyst">Data Analyst</option>
+            </select>
+
+            <label for="resumeFile">Upload resume (PDF or TXT)</label>
+            <input id="resumeFile" type="file" accept=".pdf,.txt">
+
+            <button onclick="analyzeResume()">Analyze Resume</button>
+            <div id="resumeResult" class="result"></div>
+        </section>
+
+        <section id="coding" class="panel">
+            <h2>Coding Assessment</h2>
+            <p>Answer the questions suggested for your target role.</p>
+
+            <button onclick="loadAssessment()">Load Assessment Questions</button>
+            <div id="assessmentQuestions"></div>
+            <button id="submitAssessmentButton" onclick="submitAssessment()" hidden>
+    Submit Assessment
+</button>
+
+            <button id="submitAssessmentButton"
+                    onclick="submitAssessment()"
+                    hidden>
+                Submit Assessment
+            </button>
+
+            <div id="codeResult" class="result"></div>
+        </section>
+
+        <section id="interview" class="panel">
+            <h2>Mock Interview</h2>
+            <p>Practice explaining your skills and technical knowledge.</p>
+
+            <button id="startInterviewButton" onclick="startInterview()">
+                Start Mock Interview
+            </button>
+
+            <div class="question" id="interviewQuestion">
+                Click "Start Mock Interview" to begin.
+            </div>
+
+            <textarea id="interviewAnswer"
+                      placeholder="Type your interview answer..."
+                      disabled></textarea>
+
+            <button id="evaluateInterviewButton"
+                    onclick="evaluateInterview()"
+                    disabled>
+                Submit Answer
+            </button>
+
+            <div id="interviewResult" class="result"></div>
+        </section>
+
+        <section id="roadmap" class="panel">
+            <h2>Your Learning Roadmap</h2>
+            <p>Recommendations based on your resume and assessment progress.</p>
+
+            <button onclick="loadRoadmap()">Refresh Roadmap</button>
+            <div id="roadmapContent">
+                <p>Analyze your resume to generate your roadmap.</p>
+            </div>
+        </section>
+
+        <footer>PlacementAI · AI-assisted placement preparation prototype</footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
